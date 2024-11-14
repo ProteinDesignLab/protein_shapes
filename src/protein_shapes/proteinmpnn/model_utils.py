@@ -109,7 +109,7 @@ class ProteinMPNN(torch.nn.Module):
             if p.dim() > 1:
                 torch.nn.init.xavier_uniform_(p)
 
-    def encode(self, feature_dict, pdb=None, output=None, output_dir=None):
+    def encode(self, feature_dict, pdb=None, output_dir=None):
         # xyz_37 = feature_dict["xyz_37"] #[B,L,37,3] - xyz coordinates for all atoms if needed
         # xyz_37_m = feature_dict["xyz_37_m"] #[B,L,37] - mask for all coords
         # Y = feature_dict["Y"] #[B,L,num_context_atoms,3] - for ligandMPNN coords
@@ -188,7 +188,7 @@ class ProteinMPNN(torch.nn.Module):
         np.save(output_path, h_V_outputs_array)
         return h_V, h_E, E_idx
 
-    def sample(self, feature_dict, pdb=None, output=None, output_dir=None):
+    def sample(self, feature_dict, pdb=None, output_dir=None):
         # xyz_37 = feature_dict["xyz_37"] #[B,L,37,3] - xyz coordinates for all atoms if needed
         # xyz_37_m = feature_dict["xyz_37_m"] #[B,L,37] - mask for all coords
         # Y = feature_dict["Y"] #[B,L,num_context_atoms,3] - for ligandMPNN coords
@@ -224,7 +224,7 @@ class ProteinMPNN(torch.nn.Module):
         B, L = S_true.shape
         device = S_true.device
 
-        h_V, h_E, E_idx = self.encode(feature_dict, pdb, output, output_dir)
+        h_V, h_E, E_idx = self.encode(feature_dict, pdb, output_dir)
 
         chain_mask = mask * chain_mask  # update chain_M to include missing regions
         decoding_order = torch.argsort(

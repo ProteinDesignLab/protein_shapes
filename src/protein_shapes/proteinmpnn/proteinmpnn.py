@@ -4,6 +4,7 @@ import traceback
 import subprocess
 import sys
 
+import numpy as np
 import pandas as pd
 
 from protein_shapes.constants import DATA_DIR
@@ -51,6 +52,7 @@ else:
         ["python", cur_dir / "embed.py", reference_structures, ref_embed_dir]
     )
     _, ref_embeds = load_embeddings(ref_embed_dir)
+    ref_embeds = np.transpose(ref_embeds, (1, 0, 2))
 
 samp_embed_dir = output_dir / f"embeddings_{samp_suffix}"
 
@@ -60,6 +62,7 @@ else:
     samp_embed_dir = sampled_structures
 
 _, samp_embeds = load_embeddings(samp_embed_dir)
+samp_embeds = np.transpose(samp_embeds, (1, 0, 2))
 
 
 fpd_scores = []

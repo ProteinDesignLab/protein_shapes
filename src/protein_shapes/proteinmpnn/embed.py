@@ -38,7 +38,7 @@ def main():
     json_path = cur_dir / f"{directory}_output.json"
 
     checkpoint_path = cur_dir / "model_params/proteinmpnn_v_48_020.pt"
-    main_command = f"python {run_script} --seed 111 --pdb_path_multi {json_path} --out_folder './outputs/{directory} {output_dir}' --checkpoint_protein_mpnn {checkpoint_path} --parse_atoms_with_zero_occupancy 1 --verbose 0"
+    main_command = f"python {run_script} --seed 111 --pdb_path_multi {json_path} --out_folder '{output_dir}' --checkpoint_protein_mpnn {checkpoint_path} --parse_atoms_with_zero_occupancy 1 --verbose 0"
 
     os.system(main_command)
 
