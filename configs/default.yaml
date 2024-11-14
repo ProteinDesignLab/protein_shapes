@@ -1,0 +1,6 @@
+embedding_type: ["prot_domain_classifier", "foldseek", "proteinmpnn"]
+reference_structures: "cath"
+sampled_structures: "/home/pdl/code/test_dir/protein_shape_test/subset"
+output_dir: "/home/pdl/code/protein_shapes/out_dir"
+embed_reference: False
+embed_samples: True
