@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "protein-shapes"
+version = "0.1.0"
+authors = [
+  { name="Melissa Liu", email="mliu1785@stanford.edu" },
+  { name="Tianyu Lu", email="tianyulu@stanford.edu" },
+]
+description = "Structural and Hierarchical Assessment of Proteins with Embedding Similarity (SHAPES)"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+# [project.urls]
+# Homepage = "https://github.com/ProteinDesignLab/protein_shapes.git"
+# Issues = "https://github.com/ProteinDesignLab/protein_shapes/issues""

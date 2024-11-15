@@ -1,6 +1,6 @@
 embedding_type: ["prot_domain_classifier", "proteinmpnn", "foldseek"]
 reference_structures: "cath"
-sampled_structures: "tests/test_data/expansion_perturb"
+sampled_structures: "tests/test_data"
 output_dir: "out_dir"
 embed_reference: False
 embed_samples: True

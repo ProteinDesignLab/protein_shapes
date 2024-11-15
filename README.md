@@ -46,7 +46,7 @@ python examples/plot_embeddings.py
 ```
 E.g. to visualize ProteinMPNN embeddings at the first layer, use
 ```
-python examples/plot_embeddings.py --embed-type proteinmpnn --layer 1
+python examples/plot_embeddings.py --embed-type proteinmpnn --layer 0
 ```
 Plots are by default saved in `plots/`.
 

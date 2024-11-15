@@ -32,7 +32,6 @@ for noise_type in ["gaussian", "expansion"]:
 
     ax.plot(noise_levels, all_fpd, lw=2, color='cornflowerblue')
 
-    ax.legend(loc='upper left')
     ax.set_xlabel('Noise Level')
     ax.set_ylabel('FPD')
     ax.grid()
