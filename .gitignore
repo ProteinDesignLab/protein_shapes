@@ -1,6 +1,7 @@
 cache/
 embeddings/
 out_dir/
+outputs/
 plots/
 
 

@@ -7,7 +7,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from protein_shapes.constants import DATA_DIR
+from protein_shapes.paths import DATA_DIR
 from protein_shapes.utils import load_embeddings, fpd
 
 

@@ -7,6 +7,8 @@ import sys
 
 import numpy as np
 import torch
+
+from protein_shapes.constants import device
 from protein_shapes.proteinmpnn.data_utils import (
     alphabet,
     element_dict_rev,
@@ -44,7 +46,7 @@ def main(args) -> None:
     torch.manual_seed(seed)
     random.seed(seed)
     np.random.seed(seed)
-    device = torch.device("cuda" if (torch.cuda.is_available()) else "cpu")
+    
     output_dir = args.out_folder
     if args.model_type == "protein_mpnn":
         checkpoint_path = args.checkpoint_protein_mpnn

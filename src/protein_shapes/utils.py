@@ -1,6 +1,7 @@
 import gzip
 from pathlib import Path
 import pickle
+from typing import Union
 
 import numpy as np
 from scipy import linalg
@@ -66,9 +67,14 @@ def calculate_frechet_distance(mu1, sigma1, mu2, sigma2, eps=1e-6):
     return diff.dot(diff) + np.trace(sigma1) + np.trace(sigma2) - 2 * tr_covmean
 
 
-def load_embeddings(embed_dir: Path):
+def load_embeddings(embed_dir: Union[Path, list]):
+    if isinstance(embed_dir, list):
+        embed_files = embed_dir
+    else:
+        embed_files = list(embed_dir.iterdir())
+
     pdbs, all_embeds = [], []
-    for fp in embed_dir.iterdir():
+    for fp in embed_files:
         if fp.suffix == ".gz":  # * ProtDomainSegmentor embeddings
             with gzip.open(fp, "rb") as f:
                 embed = np.load(f)

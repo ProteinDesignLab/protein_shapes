@@ -4,7 +4,7 @@ import os
 import sys
 from pathlib import Path
 
-from protein_shapes.constants import DATA_DIR
+from protein_shapes.paths import DATA_DIR
 from protein_shapes.foldseek.embed import get_struc_seq
 from protein_shapes.foldseek.eval import get_distribution_stats
 

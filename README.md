@@ -30,15 +30,23 @@ Specify the embedding type to use and paths to reference/sampled structures in `
 python run.py
 ```
 
+The provided embeddings are `"prot_domain_classifier", "proteinmpnn", "foldseek",`, spanning different protein structure hierarchies, from global features by the domain classifier to residue environments with varying sizes by ProteinMPNN encoder layers and strictly local features with Foldseek tokens.
+
 Save time by setting `embed_reference: False` to reuse precomputed reference structure embeddings or `embed_samples: False` to reuse precomputed sampled structure embeddings.
 
 Precomputed statistics for CATH are stored in `data/` and can be loaded and used as the reference statistics by setting `reference_structures: cath`.
 
+Outputs are logged in the specified `output_dir`.
+
 ## Plots
 
-Visualize sampled structures overlayed on reference set structures with UMAP with 
+For continuous embeddings, visualize sampled structures overlayed on reference set structures with UMAP with 
 ```
 python examples/plot_embeddings.py
+```
+E.g. to visualize ProteinMPNN embeddings at the first layer, use
+```
+python examples/plot_embeddings.py --embed-type proteinmpnn --layer 1
 ```
 Plots are by default saved in `plots/`.
 
