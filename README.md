@@ -7,7 +7,7 @@ Structural and Hierarchical Assessment of Proteins with Embedding Similarity.
 Clone the repo, then
 
 ```
-conda env create -n protein-shapes --file environment.yml
+conda env create -n protein-shapes --file environment.yaml
 ```
 
 The environment was created with
