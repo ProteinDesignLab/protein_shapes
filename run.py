@@ -15,7 +15,7 @@ def run_protein_shapes(cfg: DictConfig):
     embed_gt = "precomputed" if not cfg.embed_reference else "to_compute"
     embed_samp = "precomputed" if not cfg.embed_samples else "to_compute"
 
-    valid_embeddings = {"foldseek", "proteinmpnn", "prot_domain_classifier"}
+    valid_embeddings = {"foldseek", "proteinmpnn", "prot_domain_classifier", "esm3"}
     for emb in embedding_types:
         if emb not in valid_embeddings:
             raise ValueError(

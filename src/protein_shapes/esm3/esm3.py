@@ -9,11 +9,12 @@ import pandas as pd
 
 from protein_shapes.paths import DATA_DIR
 from protein_shapes.utils import load_embeddings, fpd
+from protein_shapes.esm3.embed import esm3_embed
 
 
 if len(sys.argv) != 6:
     print(
-        "Usage: python prot_domain_classifier.py  <reference_structures> <sampled_structures> <output_dir> <embed_reference> <embed_samples>"
+        "Usage: python esm3.py  <reference_structures> <sampled_structures> <output_dir> <embed_reference> <embed_samples>"
     )
     sys.exit(1)
 
@@ -38,19 +39,21 @@ samp_suffix = (
 cur_dir = Path(__file__).parent
 
 if str(reference_structures) == "cath":
-    gt_mu = np.load(DATA_DIR / "prot_domain_classifier" / "cath_mu.npy")
-    gt_sigma = np.load(DATA_DIR / "prot_domain_classifier" / "cath_sigma.npy")
+    gt_mu = np.load(DATA_DIR / "esm3" / "cath_mu.npy")
+    gt_sigma = np.load(DATA_DIR / "esm3" / "cath_sigma.npy")
 else:
     ref_embed_dir = output_dir / f"embeddings_{ref_suffix}"
-    subprocess.run(
-        ["python", cur_dir / "embed.py", reference_structures, ref_embed_dir]
-    )
+    esm3_embed(reference_structures, ref_embed_dir / "esm3_embed.pkl")
+    # subprocess.run(
+    #     ["python", cur_dir / "embed.py", reference_structures, ref_embed_dir]
+    # )
     _, ref_embeds = load_embeddings(ref_embed_dir)
 
 samp_embed_dir = output_dir / f"embeddings_{samp_suffix}"
 
 if embed_samples != "precomputed":
-    subprocess.run(["python", cur_dir / "embed.py", sampled_structures, samp_embed_dir])
+    esm3_embed(sampled_structures, samp_embed_dir / "esm3_embed.pkl")
+    # subprocess.run(["python", cur_dir / "embed.py", sampled_structures, samp_embed_dir])
 else:
     samp_embed_dir = sampled_structures
 
@@ -65,7 +68,7 @@ try:
     else:
         fpd_score = fpd(samp_embeds, ref_embeds)
     fpd_scores.append(fpd_scores)
-    print(f"FPD score using ProtDomainClassifier: {fpd_score:.4f}")
+    print(f"FPD score using ESM3: {fpd_score:.4f}")
 except Exception as e:
     print(f"Error during FPD calculation: {e}")
     print(traceback.format_exc())
