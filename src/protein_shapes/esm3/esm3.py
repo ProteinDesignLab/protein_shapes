@@ -44,16 +44,12 @@ if str(reference_structures) == "cath":
 else:
     ref_embed_dir = output_dir / f"embeddings_{ref_suffix}"
     esm3_embed(reference_structures, ref_embed_dir / "esm3_embed.pkl")
-    # subprocess.run(
-    #     ["python", cur_dir / "embed.py", reference_structures, ref_embed_dir]
-    # )
     _, ref_embeds = load_embeddings(ref_embed_dir)
 
 samp_embed_dir = output_dir / f"embeddings_{samp_suffix}"
 
 if embed_samples != "precomputed":
     esm3_embed(sampled_structures, samp_embed_dir / "esm3_embed.pkl")
-    # subprocess.run(["python", cur_dir / "embed.py", sampled_structures, samp_embed_dir])
 else:
     samp_embed_dir = sampled_structures
 

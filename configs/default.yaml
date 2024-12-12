@@ -1,4 +1,4 @@
-embedding_type: ["prot_domain_classifier", "proteinmpnn", "foldseek"]
+embedding_type: ["esm3", "proteinmpnn", "prot_domain_classifier", "foldseek"]
 reference_structures: "cath"
 sampled_structures: "tests/test_data"
 output_dir: "out_dir"

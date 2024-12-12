@@ -32,7 +32,7 @@ Specify the embedding type to use and paths to reference/sampled structures in `
 python run.py
 ```
 
-The provided embeddings are `"prot_domain_classifier", "proteinmpnn", "foldseek",`, spanning different protein structure hierarchies, from global features by the domain classifier to residue environments with varying sizes by ProteinMPNN encoder layers and strictly local features with Foldseek tokens.
+The provided embeddings are `"prot_domain_classifier", "esm3", "proteinmpnn", "foldseek",`, spanning different protein structure hierarchies, from global features by the domain classifier to residue environments with varying sizes by ESM3 and ProteinMPNN encoder layers and strictly local features with Foldseek tokens. A Huggingface token is needed to use ESM3 and will be prompted.
 
 Save time by setting `embed_reference: False` to reuse precomputed reference structure embeddings or `embed_samples: False` to reuse precomputed sampled structure embeddings.
 
