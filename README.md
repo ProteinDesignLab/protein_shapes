@@ -19,6 +19,8 @@ conda install pytorch torchvision pytorch-cuda=12.4 -c pytorch -c nvidia
 conda install numpy scipy scikit-learn pandas
 conda install -c conda-forge -c bioconda foldseek
 pip install ProDy hydra-core ml-collections dm-tree tqdm matplotlib seaborn typer-cli umap-learn
+pip install --upgrade huggingface_hub
+pip install esm
 pip install -e .
 ```
 
@@ -32,7 +34,11 @@ Specify the embedding type to use and paths to reference/sampled structures in `
 python run.py
 ```
 
-The provided embeddings are `"prot_domain_classifier", "esm3", "proteinmpnn", "foldseek",`, spanning different protein structure hierarchies, from global features by the domain classifier to residue environments with varying sizes by ESM3 and ProteinMPNN encoder layers and strictly local features with Foldseek tokens. A Huggingface token is needed to use ESM3 and will be prompted.
+The provided embeddings are `"prot_domain_classifier", "esm3", "proteinmpnn", "foldseek",`, spanning different protein structure hierarchies, from global features by the domain classifier to residue environments with varying sizes by ESM3 and ProteinMPNN encoder layers and strictly local features with Foldseek tokens. A Huggingface token is needed to use ESM3. Set the environment variable 
+```
+export HUGGINGFACE_TOKEN=<your_token>
+```
+or leave it unset to have an interactive prompt for token entry.
 
 Save time by setting `embed_reference: False` to reuse precomputed reference structure embeddings or `embed_samples: False` to reuse precomputed sampled structure embeddings.
 
