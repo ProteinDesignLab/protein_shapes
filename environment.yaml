@@ -1,37 +1,35 @@
 name: protein-shapes
 channels:
-  - bioconda
   - pytorch
-  - nvidia
+  - bioconda
   - conda-forge
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
-  - _openmp_mutex=4.5=2_gnu
-  - aria2=1.37.0=h347180d_1
+  - _openmp_mutex=4.5=2_kmp_llvm
+  - aria2=1.36.0=h3f1041a_2
   - blas=1.0=mkl
   - bottleneck=1.4.2=py310ha9d4c09_0
   - brotli-python=1.0.9=py310h6a678d5_8
   - bzip2=1.0.8=h5eee18b_6
-  - c-ares=1.34.3=heb4867d_0
-  - ca-certificates=2024.9.24=h06a4308_0
-  - certifi=2024.8.30=py310h06a4308_0
+  - c-ares=1.34.3=hb9d3cd8_1
+  - ca-certificates=2024.8.30=hbcca054_0
+  - certifi=2024.8.30=pyhd8ed1ab_0
   - charset-normalizer=3.3.2=pyhd3eb1b0_0
-  - cuda-cudart=12.4.127=0
-  - cuda-cupti=12.4.127=0
-  - cuda-libraries=12.4.1=0
-  - cuda-nvrtc=12.4.127=0
-  - cuda-nvtx=12.4.127=0
-  - cuda-opencl=12.6.77=0
-  - cuda-runtime=12.4.1=0
-  - cuda-version=12.6=3
-  - ffmpeg=4.3=hf484d3e_0
+  - cuda-cudart=12.4.127=h99ab3db_0
+  - cuda-cudart_linux-64=12.4.127=hd681fbe_0
+  - cuda-cupti=12.4.127=h6a678d5_1
+  - cuda-libraries=12.4.1=h06a4308_1
+  - cuda-nvrtc=12.4.127=h99ab3db_1
+  - cuda-nvtx=12.4.127=h6a678d5_1
+  - cuda-opencl=12.4.127=h6a678d5_0
+  - cuda-runtime=12.4.1=hb982923_0
+  - cuda-version=12.4=hbda6634_3
+  - ffmpeg=4.2.2=h20bf706_0
   - filelock=3.13.1=py310h06a4308_0
   - foldseek=9.427df8a=pl5321hb365157_1
   - freetype=2.12.1=h4a9f257_0
   - gawk=5.1.0=h7f98852_0
-  - gettext=0.22.5=he02047a_3
-  - gettext-tools=0.22.5=he02047a_3
   - giflib=5.2.2=h5eee18b_0
   - gmp=6.2.1=h295c915_3
   - gmpy2=2.1.2=py310heeb90bb_0
@@ -46,39 +44,35 @@ dependencies:
   - lcms2=2.12=h3be6417_0
   - ld_impl_linux-64=2.40=h12ee557_0
   - lerc=3.0=h295c915_0
-  - libasprintf=0.22.5=he8f35ee_3
-  - libasprintf-devel=0.22.5=he8f35ee_3
-  - libcublas=12.4.5.8=0
-  - libcufft=11.2.1.3=0
-  - libcufile=1.11.1.6=0
-  - libcurand=10.3.7.77=0
-  - libcusolver=11.6.1.9=0
-  - libcusparse=12.3.1.170=0
+  - libcublas=12.4.5.8=h99ab3db_1
+  - libcufft=11.2.1.3=h99ab3db_1
+  - libcufile=1.9.1.3=h99ab3db_1
+  - libcurand=10.3.5.147=h99ab3db_1
+  - libcusolver=11.6.1.9=h99ab3db_1
+  - libcusparse=12.3.1.170=h99ab3db_1
   - libdeflate=1.17=h5eee18b_1
   - libffi=3.4.4=h6a678d5_1
   - libgcc=14.2.0=h77fa898_1
   - libgcc-ng=14.2.0=h69a702a_1
-  - libgettextpo=0.22.5=he02047a_3
-  - libgettextpo-devel=0.22.5=he02047a_3
   - libgfortran-ng=11.2.0=h00389a5_1
   - libgfortran5=11.2.0=h1234567_1
-  - libgomp=14.2.0=h77fa898_1
   - libiconv=1.17=hd590300_2
-  - libidn2=2.3.7=hd590300_0
+  - libidn2=2.3.4=h5eee18b_0
   - libjpeg-turbo=2.0.0=h9bf148f_0
-  - libnpp=12.2.5.30=0
-  - libnvfatbin=12.6.77=0
-  - libnvjitlink=12.4.127=0
-  - libnvjpeg=12.3.1.117=0
+  - libnpp=12.2.5.30=h99ab3db_1
+  - libnvfatbin=12.4.127=h7934f7d_2
+  - libnvjitlink=12.4.127=h99ab3db_1
+  - libnvjpeg=12.3.1.117=h6a678d5_1
+  - libopus=1.3.1=h5eee18b_1
   - libpng=1.6.39=h5eee18b_0
-  - libsqlite=3.46.0=hde9e2c9_0
   - libssh2=1.11.0=h0841786_0
   - libstdcxx=14.2.0=hc0a3c3a_1
   - libstdcxx-ng=14.2.0=h4852527_1
   - libtasn1=4.19.0=h5eee18b_0
   - libtiff=4.5.1=h6a678d5_0
-  - libunistring=0.9.10=h7f98852_0
+  - libunistring=0.9.10=h27cfd23_0
   - libuuid=1.41.5=h5eee18b_0
+  - libvpx=1.7.0=h439df22_0
   - libwebp=1.3.2=h11a3e52_0
   - libwebp-base=1.3.2=h5eee18b_1
   - libxcrypt=4.4.36=hd590300_1
@@ -96,18 +90,18 @@ dependencies:
   - mpmath=1.3.0=py310h06a4308_0
   - ncurses=6.4=h6a678d5_0
   - nettle=3.7.3=hbbd107a_1
-  - networkx=3.2.1=py310h06a4308_0
+  - networkx=3.3=py310h06a4308_0
   - numexpr=2.10.1=py310h3c60e43_0
+  - ocl-icd=2.3.2=h5eee18b_1
   - openh264=2.1.1=h4ff587b_0
   - openjpeg=2.5.2=he7f1fd0_0
-  - openssl=3.3.2=hb9d3cd8_0
-  - pandas=2.2.2=py310h6a678d5_0
+  - openssl=3.4.0=hb9d3cd8_0
+  - pandas=2.2.3=py310h6a678d5_0
   - perl=5.32.1=7_hd590300_perl5
-  - pillow=10.4.0=py310h5eee18b_0
+  - pillow=11.0.0=py310hfdbf927_0
   - pip=24.2=py310h06a4308_0
-  - pybind11-abi=4=hd3eb1b0_1
   - pysocks=1.7.1=py310h06a4308_0
-  - python=3.10.14=h955ad1f_1
+  - python=3.10.15=he870216_1
   - python-dateutil=2.9.0post0=py310h06a4308_2
   - python-tzdata=2023.3=pyhd3eb1b0_0
   - pytorch=2.5.1=py3.10_cuda12.4_cudnn9.1.0_0
@@ -118,11 +112,10 @@ dependencies:
   - readline=8.2=h5eee18b_0
   - requests=2.32.3=py310h06a4308_1
   - scikit-learn=1.5.1=py310h1128e8f_0
-  - scipy=1.13.1=py310h5f9d8c6_0
-  - setuptools=72.1.0=py310h06a4308_0
+  - scipy=1.14.1=py310h5f9d8c6_0
+  - setuptools=75.1.0=py310h06a4308_0
   - six=1.16.0=pyhd3eb1b0_1
   - sqlite=3.45.3=h5eee18b_0
-  - sympy=1.13.2=py310h06a4308_0
   - tbb=2021.8.0=hdb19cb5_0
   - threadpoolctl=3.5.0=py310h2f386ee_0
   - tk=8.6.14=h39e8969_0
@@ -133,6 +126,7 @@ dependencies:
   - urllib3=2.2.3=py310h06a4308_0
   - wget=1.21.4=hda4d442_0
   - wheel=0.44.0=py310h06a4308_0
+  - x264=1!157.20191217=h7b6447c_0
   - xz=5.4.6=h5eee18b_1
   - yaml=0.2.5=h7b6447c_0
   - zlib=1.2.13=h4ab18f5_6
@@ -140,23 +134,37 @@ dependencies:
   - pip:
       - absl-py==2.1.0
       - antlr4-python3-runtime==4.9.3
-      - asttokens==2.4.1
-      - biopython==1.79
-      - contourpy==1.3.0
+      - asttokens==3.0.0
+      - attrs==24.2.0
+      - biopython==1.84
+      - biotite==0.41.2
+      - click==8.1.7
+      - cloudpathlib==0.20.0
+      - contourpy==1.3.1
       - cycler==0.12.1
       - decorator==5.1.1
       - dm-tree==0.1.8
+      - einops==0.8.0
+      - esm==3.1.1
       - exceptiongroup==1.2.2
       - executing==2.1.0
-      - fonttools==4.54.1
+      - fonttools==4.55.2
+      - fsspec==2024.10.0
+      - huggingface-hub==0.26.5
       - hydra-core==1.3.2
       - ipdb==0.13.13
-      - ipython==8.29.0
+      - ipython==8.30.0
       - jedi==0.19.2
       - kiwisolver==1.4.7
-      - matplotlib==3.9.2
+      - llvmlite==0.43.0
+      - markdown-it-py==3.0.0
+      - matplotlib==3.9.3
       - matplotlib-inline==0.1.7
+      - mdurl==0.1.2
       - ml-collections==1.0.0
+      - msgpack==1.1.0
+      - msgpack-numpy==0.4.8
+      - numba==0.60.0
       - numpy==1.23.5
       - omegaconf==2.3.0
       - packaging==24.2
@@ -164,13 +172,28 @@ dependencies:
       - pexpect==4.9.0
       - prody==2.4.1
       - prompt-toolkit==3.0.48
+      - protein-shapes==0.1.0
       - ptyprocess==0.7.0
       - pure-eval==0.2.3
       - pygments==2.18.0
+      - pynndescent==0.5.13
       - pyparsing==3.2.0
+      - regex==2024.11.6
+      - rich==13.9.4
+      - safetensors==0.4.5
+      - seaborn==0.13.2
+      - shellingham==1.5.4
       - stack-data==0.6.3
-      - tomli==2.1.0
-      - tqdm==4.67.0
+      - sympy==1.13.1
+      - tenacity==9.0.0
+      - tokenizers==0.20.3
+      - tomli==2.2.1
+      - torchtext==0.18.0
+      - tqdm==4.67.1
       - traitlets==5.14.3
+      - transformers==4.46.3
+      - typer==0.15.1
+      - typer-cli==0.15.1
+      - umap-learn==0.5.7
       - wcwidth==0.2.13
-prefix: /home/pdl/miniconda3/envs/protein-shapes
+prefix: /home/groups/possu/miniconda/envs/protein-shapes
