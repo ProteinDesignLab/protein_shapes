@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import pickle
 import torch
 import tqdm 
@@ -13,16 +14,26 @@ import torch
 warnings.filterwarnings("ignore")
 
 
-login(token="$HUGGINGFACE_TOKEN")
+if "HUGGINGFACE_TOKEN" in os.environ.keys():
+    login(token=os.environ['HUGGINGFACE_TOKEN'])
+else:
+    login()
 
 
-torch.cuda.empty_cache()
-model = ESM3.from_pretrained("esm3_sm_open_v1").to("cuda")
-vqvae_encoder = model.get_structure_token_encoder()
-vqvae_encoder = vqvae_encoder.to("cuda")
+if torch.cuda.is_available():
+    device = "cuda"
+    torch.cuda.empty_cache()
+else:
+    device = "cpu"
+
+model = ESM3.from_pretrained("esm3_sm_open_v1").to(device)
+vqvae_encoder = model.get_structure_encoder()
+vqvae_encoder = vqvae_encoder.to(device)
 
 
-def esm3_embed(pdb_dir, embedding_path):
+def esm3_embed(pdb_dir: Path, embedding_path: Path):
+    embedding_path.parent.mkdir(parents=True, exist_ok=True)
+
     pdb_subdirs = [x[0] for x in os.walk(pdb_dir)]
     pdb_files = []
     for pdb_subdir in pdb_subdirs:
@@ -35,15 +46,15 @@ def esm3_embed(pdb_dir, embedding_path):
                 if pdb_files[i] in embedding_dict:
                     continue
                 pdb_file = pdb_files[i]
-                pdb_path = os.path.join(pdb_dir, pdb_file)
-                protein = ESMProtein.from_pdb(pdb_path)
-                coords = protein.coordinates.unsqueeze(0).to("cuda")
+                protein = ESMProtein.from_pdb(pdb_file)
+                coords = protein.coordinates.unsqueeze(0).to(device)
                 z_q, min_encoding_indices = vqvae_encoder.encode(coords = coords)
 
                 embedding_dict[pdb_file] = (z_q.to("cpu"), min_encoding_indices.to("cpu"))
 
                 del z_q, min_encoding_indices, coords
-                torch.cuda.empty_cache()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
 
             except Exception as e:
                 print("error at ", pdb_files[i])
@@ -52,3 +63,4 @@ def esm3_embed(pdb_dir, embedding_path):
 
     with open(embedding_path, "wb") as f:
         pickle.dump(embedding_dict, f)
+

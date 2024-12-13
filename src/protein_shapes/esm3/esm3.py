@@ -59,7 +59,7 @@ _, samp_embeds = load_embeddings(samp_embed_dir)
 fpd_scores = []
 
 try:
-    if str(reference_structures) == "cath":        
+    if str(reference_structures) == "cath":
         fpd_score = fpd(samp_embeds, gt_mu=gt_mu, gt_sigma=gt_sigma)
     else:
         fpd_score = fpd(samp_embeds, ref_embeds)
