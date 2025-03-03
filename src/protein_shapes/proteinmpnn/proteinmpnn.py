@@ -49,7 +49,7 @@ if str(reference_structures) == "cath":
 else:
     ref_embed_dir = output_dir / f"embeddings_{ref_suffix}"
     subprocess.run(
-        ["python", cur_dir / "embed.py", reference_structures, ref_embed_dir]
+        [sys.executable, cur_dir / "embed.py", reference_structures, ref_embed_dir]
     )
     _, ref_embeds = load_embeddings(ref_embed_dir)
     ref_embeds = np.transpose(ref_embeds, (1, 0, 2))
@@ -57,7 +57,7 @@ else:
 samp_embed_dir = output_dir / f"embeddings_{samp_suffix}"
 
 if embed_samples != "precomputed":
-    subprocess.run(["python", cur_dir / "embed.py", sampled_structures, samp_embed_dir])
+    subprocess.run([sys.executable, cur_dir / "embed.py", sampled_structures, samp_embed_dir])
 else:
     samp_embed_dir = sampled_structures
 
