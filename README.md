@@ -2,6 +2,10 @@
 
 Structural and Hierarchical Assessment of Proteins with Embedding Similarity.
 
+[Preprint](https://www.biorxiv.org/content/10.1101/2025.01.09.632260v2)
+[Paper](https://doi.org/10.1016/j.cels.2025.101347)
+
+
 ## Install
 
 Clone the repo, then
