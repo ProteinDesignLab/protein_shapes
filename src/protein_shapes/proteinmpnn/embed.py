@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import os
 import subprocess
-
+import sys
 
 def main():
     parser = argparse.ArgumentParser(
@@ -20,7 +20,7 @@ def main():
     run_script = cur_dir / "run.py"
 
     clean_command = [str(clean_script), args.directory]
-    generate_json_command = ["python", str(generate_json_script), args.directory]
+    generate_json_command = [sys.executable, str(generate_json_script), args.directory]
     # print(f"gen command: {generate_json_command}")
 
     # subprocess.run(clean_command, check=True)
